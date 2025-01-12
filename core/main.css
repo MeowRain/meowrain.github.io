@@ -1,0 +1,323 @@
+
+body {
+    font-family: Consolas, monaco, monospace;
+    background-color: #232427;
+    color: #FF893A;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black; /* 半透明白色背景 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* 保证遮罩在最上层 */
+}
+.loader {
+    width: 300px;
+    line-height: 100px;
+    /* 水平垂直居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -50px;
+    /* 文字居中 */
+    text-align: center;
+    font-size: 38px;
+    /* 减小字母之间的空隙 */
+    letter-spacing: -6px;
+}
+
+/* 三个点 */
+.dots span {
+    font-size: 150%;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.dot-1 {
+    animation: dot_1 1s ease-in-out infinite;
+    /* 动画运行完后反向运行动画至起点 */
+    /* 是一个较新的属性 */
+    animation-direction: alternate;
+    animation-delay: .5s;
+}
+
+.dot-2 {
+    animation: dot_2 1s ease-in-out infinite;
+    animation-direction: alternate;
+    animation-delay: 1.5s;
+}
+
+.dot-3 {
+    animation: dot_3 1s ease-in-out infinite;
+    animation-direction: alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dot_1 {
+    0% {
+        top: 0;
+        left: 0;
+    }
+
+    50% {
+        top: 30px;
+        left: 20px;
+    }
+
+    100% {
+        top: 0px;
+        left: 40px;
+    }
+}
+
+@keyframes dot_2 {
+    0% {
+        top: 0;
+        left: 0;
+    }
+
+    50% {
+        top: -30px;
+        left: 20px;
+    }
+
+    100% {
+        top: 0px;
+        left: 40px;
+    }
+}
+
+@keyframes dot_3 {
+    0% {
+        top: 0;
+        left: 0;
+    }
+
+    50% {
+        top: -30px;
+        left: -40px;
+    }
+
+    100% {
+        top: 0px;
+        left: -80px;
+    }
+}
+/* body {
+    background-image: url("https://www.loliapi.com/acg/pc/");
+} */
+.markdwon-content {
+    padding-top: 55px;
+}
+
+.md-toc-container {
+    background-color: rgb(33, 37, 41);
+    padding: 20px 10px;
+    display: none;
+    border-left: 1px solid #eee;
+    position: fixed;
+    top: 45px;
+    right: 0;
+    z-index: 1000;
+    bottom: 0;
+    width: 16.666666%;
+}
+.header {
+    padding-left: 10px;
+}
+.sidebar {
+    position: fixed;
+    top: 45px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    padding: 20px;
+    overflow: auto !important;
+    /* Scrollable contents if viewport is shorter than content. */
+    border-right: 1px solid black;
+    width: 16.666666%;
+    background-color: rgb(33, 37, 41);
+}
+
+.sidebar .search-box {
+    min-width: 180px;
+}
+
+
+@media (min-width: 992px) {
+    .sidebar {
+        display: block;
+    }
+    .md-toc-container {
+        display: block;
+    }
+    .btn-toggle-container {
+        right: 18%;
+    }
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        width: 30%;
+    }
+    .md-toc-container {
+        width: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 55%;
+    }
+    .md-toc-container {
+        width: 40%;
+    }
+}
+
+
+
+/*
+ * Main content
+ */
+
+
+.page-title {
+    padding-bottom: 5px ;
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar .my-page-header {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.ztree * {
+    padding: 0;
+    margin: 0;
+}
+
+.ztree ul {
+    overflow: unset !important;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4 {
+    margin-bottom: 0;
+}
+
+.placeholder {
+    margin-bottom: 20px;
+}
+
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+
+/*.panel-shadow {
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+}*/
+
+.panel {
+    margin-top: 50px;
+}
+
+.panel-white {
+    border: 1px solid #dddddd;
+}
+
+.panel-white .panel-heading {
+    color: #333;
+    border-color: #ddd;
+}
+
+.panel-white .panel-footer {
+    border-color: #ddd;
+}
+
+.comments-container {
+    margin-top: 20px;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+#article.markdown-body {
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+}
+
+/* #article.markdown-body ol,#article.markdown-body ul{
+    margin-left:4em;
+}
+ */
+#md_toc_container {
+    overflow-y: auto !important;
+}
+
+#md_toc_container ul li {
+    list-style-type: none;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#md_toc_container ul {
+    padding-left: 20px;
+}
+#md_toc_container ul li a {
+    color: white;
+}
+#md_toc_container .toc-level-1,
+#md_toc_container .toc-level-2,
+#md_toc_container .toc-level-3,
+#md_toc_container .toc-level-4,
+#md_toc_container .toc-level-5,
+#md_toc_container .toc-level-6 {
+    color: white;
+    line-height: 25px;
+    font-size: 12px;
+}
+
+#md_toc_container .toc-level-1,
+#md_toc_container .toc-level-2 {
+    font-size: 13px;
+    font-weight: 550;
+}
+
+
+.canvas_effects {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+canvas, svg {
+    vertical-align: middle;
+}
